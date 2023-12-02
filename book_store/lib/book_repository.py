@@ -13,3 +13,9 @@ class BookRepository():
             books.append(book)
         
         return books
+    
+    def find(self, id):
+        row = self._connection.execute(f"SELECT * FROM books WHERE id = {id}")
+        book = Book(row[0]['id'], row[0]['title'], row[0]['author_name'])
+
+        return book

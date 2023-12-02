@@ -11,8 +11,7 @@ connection.seed("seeds/book_store.sql")
 
 # Retrieve all artists
 book_repository = BookRepository(connection)
-books = book_repository.all()
+book = book_repository.find(1)
 
 # List them out
-for book in books:
-    print(f"{book.id},    {book.title},    {book.author}")
+print(f"{book.id}     {book.title}     {book.author}")
